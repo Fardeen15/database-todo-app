@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sign In</h1>
+    <div>
+        <form onsubmit="signIn()">
+            <input onchange="gettingValueSignIn()" type="email" placeholder="Email" id="email">
+            <input onchange="gettingValueSignIn()" type="password" placeholder="Password" id="password">
+            <button id="button">Submit</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

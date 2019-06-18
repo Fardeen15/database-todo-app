@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+</head>
+<body>
+    <div>
+
+        <h1>Main Dash Board</h1>
+        <form onsubmit="setData()">
+            <input onchange="todoData()" type="text" placeholder="First Name" id="Fname">
+            <input onchange="todoData()" type="text" placeholder="Last Name" id="Lname">
+            <input onchange="todoData()" type="text" placeholder="Age" id="age">
+            <button>ADD</button>
+            <button onclick="changePage()">view List</button>
+        </form>
+    </div>
+    <div>
+        <button onclick="signOut()">signOut</button>
+    </div>
+    
+    <script src="index.js"></script>
+
+</body>
+</html>
