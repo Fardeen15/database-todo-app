@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+    <link href="all.css" rel="stylesheet">
+    <style>
+        #modalDiv {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="tableDiv">
-        <table id="data">
-            <tr>
-                <th>Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-            </tr>
-        </table>
+    <div id="mainContainer">
+
+        <div id="tableDiv">
+            <div id="modalDiv">
+                <div id="inputDiv">
+                    <input type="text" placeholder="name" id="updtFname"><br><br>
+                    <input type="text" placeholder="lastName" id="updtLname"><br><br>
+                    <input type="text" placeholder="Age" id="updtAge"><br><br>
+                    <span id="btn"></span>
+                </div>
+            </div>
+            <table id="data">
+                <tr>
+                    <th>S no</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th><button onclick="signOut()">sign out</button></th>
+                    <th><button onclick="add()">Add Data</button></th>
+                </tr>
+            </table>
+        </div>
     </div>
-    <script src="index.js"></script>
-    <script>getData()</script>
+    
 </body>
+<script src="index.js"></script>
+<script>getData()</script>
+
 </html>

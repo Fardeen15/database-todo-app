@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #768198; 
+    background: linear-gradient(to bottom,  #768198 0%,#bec6d8 100%);
+    height: 100vh;
+}
+#signUpDiv{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-25%);
+    text-align: center;
+    width: 100%;
+}
+input{
+    border: 0px;
+    width: 30%;
+    height: 30px;   
+    padding-left: 20px;
+    transition: ease-in-out 0.2s;
+    border-radius:15px; 
+}
+form{
+    margin-top: 46px;
+}
+input:focus{
+    font-size: 16px;
+    outline: none;
+}
+button{
+    height: 35px;
+    width: 15%;
+    border : none;
+    border-radius: 15px;
+    outline: none;
+}
+button:hover{
+    font-size: 16px;
+   background-color: #bec6d8;
+}button:focus{
+    font-size: 16px;
+   background-color: #bec6d8;
+}
+#dataDiv{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-25%);
+    text-align: center;
+    width: 100%;
+
+}
+#signIn{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-25%);
+    text-align: center;
+    width: 100%;
+}
+#tableDiv{
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+#data{
+    width: 100%;
+    border: 1px solid black;
+    position: fixed;
+}
+th{
+    width : 15%;
+    background-color: #3c558a
+}
+td{
+    text-align: center;
+    padding: 6px;
+}
+table {
+    border-collapse: collapse;
+  }
+  
+tr{
+    border: 1px solid black
+}  
+tr button{
+    width: 80px;
+}
+#modalDiv{
+    height: 100vh;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 2;
+    background-attachment: fixed;
+}
+#inputDiv{
+position: relative;
+top : 50%;
+left : 50%;
+transform: translate(-50%,-50%);
+width: 100%;
+}

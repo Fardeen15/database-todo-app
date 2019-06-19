@@ -11,10 +11,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var email;
 var password;
+
 function gettingValueSignIn() {
     email = document.getElementById("email").value;
     password = document.getElementById('password').value;
-
 }
 
 function signIn() {
@@ -66,15 +66,18 @@ function changePage() {
 var database = firebase.database();
 var email;
 var password;
+var number;
 function personalInfo() {
     email = document.getElementById('signUpEmail').value;
     password = document.getElementById('signUpPassword').value;
+    number = document.getElementById('signUpNumber').value;
 }
 function signUp() {
     event.preventDefault();
     let obj = {
         email: email,
-        password: password
+        password: password,
+        number: number
     }
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function (res) {
@@ -98,9 +101,12 @@ function getData() {
             database.ref().child(user.uid).child("wholeData").child("todoData").on('value', function (snap) {
                 if (snap.val()) {
                     table.innerHTML = `            <tr>
+                    <th>S no</th>
                     <th>Name</th>
                     <th>Last Name</th>
                     <th>Age</th>
+                    <th><button onclick="signOut()">sign out</button></th>
+                    <th><button onclick="add()">Add Data</button></th>
                     </tr>
                     `
 
@@ -108,15 +114,25 @@ function getData() {
                     for (var i = 0; i < obj.length; i++) {
                         table.innerHTML +=
                             `<tr>
+                        <td>${i + 1}</td>
                         <td>${obj[i].name}</td>
                         <td>${obj[i].lastName}</td>
                         <td>${obj[i].age}</td>
                         <td><button name = "${obj[i].name}" onclick = "del()">delete</button></td>
-                        <td><button name = "${obj[i].name}" onclick = "update()">update</button></td>
+                        <td><button name = "${obj[i].name}" onclick = "edit()">Edit</button></td>
                         </tr>`
                     }
-                }else{
-                    table.innerHTML = ""
+                } else {
+                    table.innerHTML = `            <tr>
+                    <th>S no</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th><button onclick="signOut()">sign out</button></th>
+                    <th><button onclick="add()">Add Data</button></th>
+                    </tr>
+                    `
+
                 }
             });
         } else {
@@ -124,11 +140,62 @@ function getData() {
         }
     });
 }
+function update() {
+    var name = event.target.name;
+    var obj = {
+        name: document.getElementById('updtFname').value,
+        lastName: document.getElementById('updtLname').value,
+        age: document.getElementById('updtAge').value
+    }
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            database.ref(user.uid).child('wholeData').child("todoData").child(name).remove();
+            database.ref(user.uid).child('wholeData').child("todoData").child(obj.name).set(obj).then(() => {
+                var id = document.getElementById('modalDiv');
+                id.style.display = "none";
+
+            })
+        }
+    })
+}
+
 function del() {
+
     var name = event.target.name;
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             database.ref(user.uid).child('wholeData').child("todoData").child(name).remove()
+                .then(() => {
+                    console.log(user.uid)
+                })
+
         }
     })
+
+}
+function edit() {
+    var name = event.target.name;
+    var id = document.getElementById('modalDiv');
+    id.style.display = "block";
+    document.getElementById('btn').innerHTML = `<button name = "${name}" onclick = "update()">update</button>`
+    document.getElementById('btn').innerHTML += `<button name = "${name}" onclick = "back()">back</button>`
+    document.getElementById('updtFname').value = name
+}
+function back() {
+    window.location.href = "viewlist.html"
+}
+function signOut() {
+
+    firebase.auth().signOut().then(function () {
+        window.location.href = "index.html"
+    }).catch(function (error) {
+        // An error happened.
+    });
+}
+function pagechange() {
+    window.location.href = "signUp.html"
+}
+function add() {
+    window.location.href = "addData.html"
+
 }

@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
     <title>Document</title>
+    <link href="all.css" rel="stylesheet">
 </head>
 
 <body>
-    <div>
+    <div id="signUpDiv">
         <h1>Sign Up</h1>
         <form onsubmit="signUp()">
-            <input onchange="personalInfo()" type="email" placeholder="Email" id="signUpEmail">
-            <input onchange="personalInfo()" type="password" placeholder="Password" id="signUpPassword">
-            <button>Submit</button>
+            <input onchange="personalInfo()" type="email" placeholder="Email" id="signUpEmail"><br><br>
+            <input onchange="personalInfo()" type="password" placeholder="Password" id="signUpPassword"><br><br>
+            <input onchange="personalInfo()" type="number" placeholder="Number" id="signUpNumber"><br><br>
+            <button>Submit</button><br><br>
         </form>
     </div>
     <script src="index.js"></script>

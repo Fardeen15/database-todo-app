@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
     <title>Document</title>
+    <link href="all.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Sign In</h1>
-    <div>
+    <div id="signIn">
+            <h1>Sign In</h1>
         <form onsubmit="signIn()">
-            <input onchange="gettingValueSignIn()" type="email" placeholder="Email" id="email">
-            <input onchange="gettingValueSignIn()" type="password" placeholder="Password" id="password">
-            <button id="button">Submit</button>
+            <input onchange="gettingValueSignIn()" type="email" placeholder="Email" id="email"><br><br>
+            <input onchange="gettingValueSignIn()" type="password" placeholder="Password" id="password"><br><br>
+            <button id="button">Submit</button><br><br>
+            <button onclick="pagechange()">sign Up</button>
+
         </form>
     </div>
     <script src="index.js"></script>
